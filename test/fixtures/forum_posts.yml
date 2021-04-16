@@ -2,12 +2,12 @@
 
 one:
   content: MyText
-  forum_thread_id: 
+  forum_thread_id:
   user_id: MyString
   integer: MyString
 
 two:
   content: MyText
-  forum_thread_id: 
+  forum_thread_id:
   user_id: MyString
   integer: MyString
