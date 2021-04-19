@@ -1,7 +1,7 @@
 class ForumThreadsController < ApplicationController
 
   def index
-    @threads = ForumThread.all
+    @threads = ForumThread.order(id: :desc)
   end
 
   def show
@@ -10,6 +10,20 @@ class ForumThreadsController < ApplicationController
 
   def new
     @thread = ForumThread.new
+  end
+
+  def create
+    @thread = ForumThread.new(resources_params)
+    @thread.user = User.first
+    @thread.save
+
+    redirect_to root_path
+  end
+
+  private
+
+  def resources_params
+    params.require(:forum_thread).permit(:title, :content)
   end
 end
 
